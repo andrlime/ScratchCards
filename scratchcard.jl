@@ -192,12 +192,14 @@ function cycle(player::Player) # void -> Int (winnings)
     else
         println("Gambling is stupid.")
     end
+
+    return winnings
 end
 
 pl = Player("A", 100)
 
 while true
-    cycle(pl)
+    pl.balance = pl.balance + cycle(pl)
     print("Continue? (y/n) ")
     cont = readline()
     if cont == "N" || cont == "n"
